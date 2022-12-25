@@ -20,6 +20,11 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'wompampsupport.azureedge.net',
                 port: ''
+            },
+            {
+                protocol: 'https',
+                hostname: 'loremflickr.com',
+                port: ''
             }
         ]
     },

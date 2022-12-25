@@ -9,29 +9,19 @@ function Home() {
     const [postsList, _] = useState(Posts);
 
     return (
-        <>
-            {/* <div className="flex justify-center">
-                <div className="w-[34rem] px-6">
+        <div className="flex flex-grow">
+            <div className="w-full space-y-4">
+                <NewPost />
+                <div className="space-y-4">
                     {postsList.map((p) => (
                         <Post key={p.id} post={p} />
                     ))}
                 </div>
-                <div className="font-extrabold select-none text-zinc-300/80">Recommended</div>
-            </div> */}
-            <div className="flex flex-grow">
-                <div className="w-full space-y-4">
-                    <NewPost />
-                    <div className="space-y-4">
-                        {postsList.map((p) => (
-                            <Post key={p.id} post={p} />
-                        ))}
-                    </div>
-                </div>
-                <div className="hidden md:block ml-4">
-                    <Recommended />
-                </div>
             </div>
-        </>
+            <div className="hidden md:block ml-4">
+                <Recommended />
+            </div>
+        </div>
     );
 }
 

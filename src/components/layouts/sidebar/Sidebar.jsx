@@ -2,49 +2,37 @@ import { useState } from 'react';
 import SidebarItem from '@/components/layouts/sidebar/SidebarItem';
 import Icon from '@/components/ui/icons/Icon';
 import clsx from 'clsx';
+import { pageStore } from '@/store';
 
-const items = [
-    {
+const items = {
+    home: {
         name: 'Home',
         icon: 'home',
-        path: '/',
-        active: true
+        path: '/'
     },
-    {
+    explore: {
         name: 'Explore',
         icon: 'compass2',
         path: '/explore'
     },
-    {
+    settings: {
         name: 'Settings',
         icon: 'wrench',
         path: '/settings',
         size: 26
     }
-];
+};
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(true);
+    const { isHome, isExplore, isSettings } = pageStore();
 
     return (
         <div className={clsx('pr-8', !isOpen && 'w-10')}>
-            <div className="w-full space-y-6">
-                {/* <div
-                    className="absolute -right-10"
-                    onClick={() => {
-                        setIsOpen(!isOpen);
-                    }}>
-                    <Icon icon="pushpin" button />
-                </div> */}
-                {items.map((item, index) => (
-                    <SidebarItem
-                        key={index}
-                        item={item}
-                        isSidebarOpen={isOpen}
-                        isActive={item.active}
-                        tooltip
-                    />
-                ))}
+            <div className="space-y-6 w-12 smd:w-32 ">
+                <SidebarItem item={items.home} isActive={isHome} tooltip />
+                <SidebarItem item={items.explore} isActive={isExplore} tooltip />
+                <SidebarItem item={items.settings} isActive={isSettings} tooltip />
             </div>
         </div>
     );

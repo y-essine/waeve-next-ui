@@ -9,7 +9,7 @@ const Navbar = ({ className }) => {
     return (
         <div className={clsx('flex', className)}>
             <div className="flex items-center pr-8 w-20 smd:w-40">
-                <div className="pl-0 smd:pl-12">
+                <div>
                     <Icon icon="waev" color="#D95353" button size={48} />
                 </div>
             </div>

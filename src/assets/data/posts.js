@@ -14,7 +14,7 @@ const Posts = [
         id: 2,
         author: {
             name: 'YESSINE',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/992.jpg',
+            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1103.jpg',
             username: 'y.essin.e',
             verified: true
         },

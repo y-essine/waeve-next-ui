@@ -18,13 +18,14 @@ const Icon = ({
     box,
     children,
     isActive,
-    darker
+    darker,
+    stacked
 }) => {
     return (
         <div className="relative">
             <span
                 className={clsx(
-                    `icon-${icon} flex justify-center items-center duration-200 relative`,
+                    `icon-${icon} flex justify-center items-center duration-200 transition-colors relative outline outline-0 rounded-md`,
                     button && 'cursor-pointer',
                     className,
                     !color && 'text-secondary-t',
@@ -32,9 +33,10 @@ const Icon = ({
                     group && !disabled && 'group-hover:text-primary-t',
                     disabled && '!text-tertiary-t !cursor-default',
                     round && !circle && 'rounded-full hover:bg-white/10',
-                    isActive && '!text-primary-t',
+                    isActive && '!text-primary-t !outline-2 outline-[#e47373] ',
                     darker && 'opacity-50',
-                    end && '!justify-end'
+                    end && '!justify-end',
+                    stacked && '!outline-1 outline-primary'
                 )}
                 css={css`
                     color: ${color};
@@ -56,7 +58,7 @@ const Icon = ({
                 {children}
 
                 <div
-                    className={clsx('box absolute')}
+                    className={clsx('box absolute outline-1 outline-primary')}
                     css={css`
                         ${circle &&
                         !round &&
@@ -64,12 +66,16 @@ const Icon = ({
                         `
                         border-radius: 50%;
                         background: ${circle};
-                        transform: translateZ(-10px);
+                        z-index: -1;
                         width: ${box || size}px;
-                        height: ${box || size}px;`}
+                        height: ${box || size}px;
+                        transform: translate(-50%, -50%);
+                        top: 50%;
+                        left: 50%;)`}
                     `}></div>
             </span>
-            <div className="hidden text-secondary-t"></div>
+            <div className="hidden text-secondary-t outline-2 outline-primary"></div>
+            <div className="hidden outline-2 outline-[#e47373]"></div>
         </div>
     );
 };

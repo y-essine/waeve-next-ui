@@ -9,7 +9,7 @@ const SidebarItem = ({ item, isSidebarOpen, isActive, tooltip }) => {
     return (
         <Link
             href={item.path}
-            className="flex items-center cursor-pointer group rounded-lg w-12 smd:w-32 relative">
+            className="flex items-center cursor-pointer group rounded-lg relative">
             <Icon icon={item.icon} group size={item.size || 30} box={48} isActive={isActive} />
             {tooltip && <Tooltip className="ml-14 block smd:hidden">{item.name}</Tooltip>}
             {isSidebarOpen && (

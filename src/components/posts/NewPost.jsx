@@ -8,7 +8,7 @@ const NewPost = () => {
         <div className="flex">
             <Avatar
                 src={
-                    'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/487.jpg'
+                    'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1103.jpg'
                 }
                 size={12}
             />

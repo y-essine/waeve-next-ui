@@ -1,5 +1,5 @@
-import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { Inter } from '@next/font/google';
 import '@/globals.css';
 
@@ -7,11 +7,18 @@ import Home from '@/pages/_home';
 import Navbar from '@/components/layouts/navbar/Navbar';
 import Sidebar from '@/components/layouts/sidebar/Sidebar';
 
+import { pageStore } from '@/store';
+
 const inter = Inter({ subsets: ['latin'] });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }) {
     const router = useRouter();
-    const isHome = router.pathname === '/';
+
+    const { setPage, isHome } = pageStore();
+
+    useEffect(() => {
+        setPage(router.pathname);
+    }, [router.pathname, setPage]);
 
     return (
         <div className={'flex justify-center ' + inter.className}>
@@ -22,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     {/* sidebar */}
                     <Sidebar />
                     {/* content */}
-                    {isHome ? <Home /> : <Component {...pageProps} />}
+                    <div className="w-full">{isHome ? <Home /> : <Component {...pageProps} />}</div>
                 </div>
             </div>
         </div>
